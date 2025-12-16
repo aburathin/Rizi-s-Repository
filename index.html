@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🎉 শুভ জন্মদিন রিজি | Happy Birthday Riji</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000000;
+      font-family: 'Segoe UI', sans-serif;
+      color: #00d4ff;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 1rem;
+      text-align: center;
+    }
+
+    #popup, #main {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #popup {
+      position: fixed;
+      top: 0; left: 0;
+      background: rgba(0, 0, 0, 0.97);
+      z-index: 1000;
+      color: #fff;
+      animation: fadeIn 1s ease-in-out;
+      overflow: hidden;
+    }
+
+    #popup.fade-out {
+      animation: fadeOut 1s ease forwards;
+    }
+
+    #popup canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+#popup div {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(0, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+  padding: 1.8rem;
+  border: 4px solid;
+  border-image: linear-gradient(135deg, #00ffff, #00ffa1, #007bff) 1;
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 0.6),
+    0 0 60px rgba(0, 255, 161, 0.4),
+    inset 0 0 15px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  color: #e0ffff;
+  max-width: 430px;
+  width: 95%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  animation: pulseGlow 3s ease-in-out infinite, gradientFlow 6s linear infinite;
+  animation-fill-mode: forwards;
+}
+
+#popup div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shimmer 3s infinite;
+  z-index: 1;
+}
+
+#popup div::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(255, 255, 255, 0.07),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+#popup div > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 12px #00d4ff,
+      0 0 24px #00ffa1,
+      inset 0 0 8px rgba(0, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 20px #00ffa1,
+      0 0 36px #00d4ff,
+      inset 0 0 14px rgba(0, 255, 255, 0.4);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+button {
+  position: relative;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(270deg, #00d4ff, #00ffa1);
+  background-size: 400% 400%;
+  color: #000;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.3s;
+  animation:
+    pulseGlow 3s ease-in-out infinite,
+    gradientFlow 5s ease infinite;
+  box-shadow:
+    0 0 15px #00d4ff,
+    0 0 30px #00ffa1,
+    inset 0 0 6px rgba(0, 255, 255, 0.25);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.6px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.6);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shimmer 3s infinite;
+}
+
+button:hover {
+  transform: scale(1.08);
+  border-color: #00ffa1;
+  box-shadow:
+    0 0 25px #00ffa1,
+    0 0 40px #00d4ff,
+    inset 0 0 12px rgba(0, 255, 255, 0.5);
+}
+
+ 
+.box {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(0, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+  padding: 1.8rem;
+  border: 4px solid;
+  border-image: linear-gradient(135deg, #00ffff, #00ffa1, #007bff) 1;
+
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 0.6),
+    0 0 60px rgba(0, 255, 161, 0.4),
+    inset 0 0 15px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  
+  color: #e0ffff;
+  width: 90%;
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+  display: none;
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+  animation: pulseGlow 3s ease-in-out infinite, gradientFlow 6s linear infinite;
+  animation-fill-mode: forwards;
+}
+.box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shimmer 3s infinite;
+  z-index: 1;
+}
+
+.box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(255, 255, 255, 0.07),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.box > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+
+
+.box:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 0 40px rgba(0, 255, 255, 0.8),
+    0 0 80px rgba(0, 255, 161, 0.6),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  .box {
+    padding: 1rem;
+    width: 95%;
+  }
+
+  #popup div {
+    padding: 1.2rem;
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .pic-section img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .final-message {
+    font-size: 1.2rem;
+  }
+
+  .text-box h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  #cursor {
+    height: 1em;
+  }
+}
+
+   .box.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: fadeInBox 0.8s ease forwards;
+    }
+
+    .box:hover {
+      transform: scale(1.03);
+      box-shadow:
+        0 0 25px rgba(0, 255, 255, 1),
+        0 0 50px rgba(0, 255, 255, 0.6),
+        inset 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+
+    .box ul {
+  padding-left: 1.2rem;
+  line-height: 1.6;
+  color: #d9faff;
+  text-align: left; /* 👈 Add this line */
+}
+
+    .box p {
+      color: #f0faff;
+      margin: 0.5rem 0;
+    }
+
+    .box p[contenteditable] {
+      outline: none;
+      cursor: text;
+    }
+
+    .box.fade-out {
+      animation: fadeOut 0.8s ease forwards;
+    }
+
+    #life-time-counter {
+      font-size: 1rem;
+      background: rgba(20, 20, 20, 0.5);
+      padding: 0.8rem;
+      border-radius: 12px;
+      box-shadow: inset 0 0 10px #66ccff;
+      color: #b0f0ff;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .pic-section {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    .pic-section.fade-in {
+      display: flex;
+      animation: fadeIn 1s ease forwards;
+    }
+
+.pic-section img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 4px solid;
+  border-image: linear-gradient(to right, #00ffff, #00ffa1) 1;
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.8),
+    0 0 40px rgba(0, 255, 161, 0.5),
+    inset 0 0 12px rgba(0, 255, 255, 0.2);
+  margin-bottom: 1.2rem;
+  border-radius: 12px; /* Slight rounding, but square shape */
+}
+
+.text-box {
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(to right, #00ffff, #00ffa1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(0, 255, 200, 0.5);
+}
+
+#cursor {
+  display: inline-block;
+  width: 4px;
+  height: 1.2em;
+  background: linear-gradient(to right, #00ffff, #00ffa1);
+  vertical-align: bottom;
+  animation: blink 1s infinite;
+}
+
+
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(0.95); }
+    }
+
+      @keyframes fadeInBox {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+    .final-message {
+  font-size: 1.5rem;
+  color: #b0faff;
+  margin: 0.8rem 0;
+  text-shadow: 0 0 8px #00ffa1;
+}
+#coverPage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #000000, #000000 80%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  cursor: pointer;
+  transition: opacity 1s ease;
+}
+
+.cover-text {
+  font-size: 2rem;
+  color: #00f0ff;
+  text-shadow: 0 0 15px #00ffff;
+  animation: pulseGlow 2s infinite;
+  text-align: center;
+  padding: 1rem 2rem;
+  border: 2px solid #00f0ff;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+#coverPage.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+#block {
+  display: inline-block;
+  margin-right: 4px;
+  color: #00ffa1;
+  opacity: 0.9;
+  font-weight: bold;
+  animation: pulseBlock 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseBlock {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div id="coverPage">
+  <div class="cover-text">Tap to Start</div>
+</div>
+  <div id="popup">
+    <canvas id="confettiCanvas"></canvas>
+    <div>
+      <h1>শুভ জন্মদিন রিজি</h1>
+      <p>শুধু  আজ না, প্রতিদিনই তুই আমার কাছে স্পেশাল !</p>
+      <button onclick="goToMain()">Continue</button>
+    </div>
+  </div>
+
+  <div id="main" style="display: none;">
+    <div class="box active">
+      <h2>জন্মদিনের বার্তা</h2>
+     <p> শুভ জন্মদিন ! নতুন বছরে যেন তোর জীবনে আসে সাফল্য, শান্তি আর অনেক খুশি। তুই যেমন মিষ্টি মানুষ, তেমনি থাক সারাজীবন। সবার ভালোবাসায় ভরে উঠুক তোর দিনগুলো। তোর স্বপ্নগুলো যেন একে একে পূর্ণ হয়, আর জীবনের প্রতিটি ধাপ হোক আনন্দময়।আজ নয় শুধু, প্রতিটি দিনই তোর - হাস, খেল, উপভোগ কর জীবন টাকে! আবারও শুভ জন্মদিন - রঙিন জীবনের শুভ কামনা রইল।</p>
+      <button class="next-btn">Next</button>
+    </div>
+
+    <div class="box">
+      <h2>আজকের ইতিহাস</h2>
+      <ul>
+        <li>১৮১২ – নেপোলিয়ন রাশিয়ার যুদ্ধ শুরু করেন।</li>
+      <li>১৯৪৭ – প্রথম ইউএফও দেখা যায়।</li>
+      <li>১৫০৯ – হেনরি অষ্টম সিংহাসনে বসেন।</li>
+      <li>২০১০ – বিশ্বের দীর্ঘতম টেনিস ম্যাচ শেষ হয়।</li>
+        <li>১৯৯১ – সোভিয়েত ইউনিয়ন ভেঙে যায়।</li>
+      
+      </ul>
+      <button class="next-btn">Next</button>
+    </div>
+
+    <div class="box">
+      <h2> আজ আর কার জন্মদিন ?</h2>
+      <ul>
+        <li>১৯৮৭ – লিওনেল মেসি, আর্জেন্টিনার ফুটবলার।</li>
+        <li>১৯৩৭ – ন্যান্সি এলকর্স, মার্কিন মহাকাশ বিজ্ঞানী।</li>
+        <li>১৯৯৪ – মিন, দক্ষিণ কোরিয়ার গায়িকা ও মডেল।</li>
+        <li>১৫৪২ – সেন্ট জন অব দ্য ক্রস, স্পেনের কবি।</li>
+        <li>১৯৮৮ – রাশিয়া উইলিয়ামস, ইংল্যান্ডের ক্রিকেটার।</li>
+        
+        </ul>
+      <button class="next-btn">Next</button>
+    </div>
+
+    <div class="box">
+      <h2>তোর বাংলা জন্মতারিখ !</h2>
+      <p>১০ আষাঢ় ১৪১৮ বঙ্গাব্দ</p>
+      <button class="next-btn">Next</button>
+    </div>
+
+    <div class="box">
+      <h2>পৃথিবীতে তোর কতসময় ?</h2>
+      <div id="life-time-counter"></div>
+      <button class="next-btn">Next</button>
+    </div>
+ <div class="box"> 
+      <h2>তোর নামের অর্থ !</h2>
+ <ul>
+<li> ফারিহা ▸ সুখী মেয়ে</li>
+<li> তাবাসসুম ▸ কোমল হাসি   </li>
+<li> রিজি ▸ উদ্ভাবনী মেয়ে</li>
+</ul>
+      <button class="next-btn">Next</button>
+</div>
+<div class="box">
+  <h2>তোকে নিয়ে একটি কবিতা !</h2>
+  <P>নামেই যেন হাসির ঝরনা,</P>
+  <p>চোখে তার স্বপ্ন, হৃদয়ে সোনা।</p>
+<p>সে তো এক কল্পনার কাব্য,</p>
+<p>শব্দহীন সুর, হৃদয়ের অভিজ্ঞান।</p>
+<p>দূরে থেকেও বন্ধুত্ব গড়ে,</p>
+<p>মনে সে তো সবসময় কাছে।</p>
+<button class="next-btn">Next</button>
+</div>
+    <div class="box">
+      <h2>শেষ কিছু কথা !</h2>
+      <p>জীবন ছোট, একদিন, একঘণ্টা, একসেকেন্ড  আর ফিরে আসবে না। তাই তুই তোর প্রতিটা মুহূর্ত উপভোগ করার চেষ্টা কর। জানি সহজ নয়, কিন্তু কঠিন সময় পার করতে পারিস একটা সুন্দর হাসি নিয়ে। এই জীবনে অনেক অস্থায়ী মানুষ আসবে, তাদের উপেক্ষা করে সামনে এগিয়ে চল। শুধুমাত্র তাদের সময় দে যারা তোর জন্য কাঁদবে - বিশেষ করে তোর মা-বাবাকে। কারণ তোর বন্ধু তোর জন্য কাঁদবে না, তোর প্রতিবেশী কাঁদবে না, যাদের তুই ভালোবাসিস তারা কাঁদবে না। শুধুমাত্র মা-বাবা কাঁদবে। তাই তাদের সময় দে, তাদের খুশি কর। আর পরকালের জন্যও ভাব, কারণ সবাইকে একদিন মৃত্যু বরণ করতে হবে। আর হ্যাঁ , আমাক অন্যদের মতো সহজে ভুলা যাস না। ✨</p>
+      <button class="next-btn">Finish</button>
+    </div>
+
+    <div class="pic-section" id="finalSection">
+      <img src="https://scontent.fdac20-1.fna.fbcdn.net/v/t1.15752-9/506951446_1264067705133303_5837881924592038492_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=lYokykMel-kQ7kNvwGGLOoF&_nc_oc=AdnYA4OhAstnt3LlvREUd9Z74yQ4T62ftpA-FNddE7hXU5sxBFUYPfTrEQVcGgj8dms&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdac20-1.fna&oh=03_Q7cD2gH8Ii5DR9p4jtp5gBDTLznpnQKye71XjXaG47241r8l3w&oe=6882549F" alt="রিজির ছবি" />
+      <p class="final-message"> ফারিহা তাবাসসুম রিজি</p>
+      <div class="text-box">
+        <h2><span id="block">▏</span><span id="typingText"></span><span id="cursor">|</span></h2>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      const birthDate = new Date("2011-06-24T12:40:00");
+
+
+    function updateLifeTime() {
+      const now = new Date();
+
+      let years = now.getFullYear() - birthDate.getFullYear();
+      let months = now.getMonth() - birthDate.getMonth();
+      let days = now.getDate() - birthDate.getDate();
+      let hours = now.getHours() - birthDate.getHours();
+      let minutes = now.getMinutes() - birthDate.getMinutes();
+      let seconds = now.getSeconds() - birthDate.getSeconds();
+
+      // Adjust negative values
+      if (seconds < 0) {
+        seconds += 60;
+        minutes--;
+      }
+      if (minutes < 0) {
+        minutes += 60;
+        hours--;
+      }
+      if (hours < 0) {
+        hours += 24;
+        days--;
+      }
+      if (days < 0) {
+        const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += prevMonth.getDate();
+        months--;
+      }
+      if (months < 0) {
+        months += 12;
+        years--;
+      }
+
+      const el = document.getElementById("life-time-counter");
+      if (el) {
+        el.textContent = `${years} বছর, ${months} মাস, ${days} দিন, ${hours} ঘণ্টা, ${minutes} মিনিট, ${seconds} সেকেন্ড`;
+      }
+    }
+
+    // Initial call and auto update every second
+    updateLifeTime();
+    setInterval(updateLifeTime, 1000);
+
+    function goToMain() {
+      const popup = document.getElementById("popup");
+      popup.classList.add("fade-out");
+
+      popup.addEventListener("animationend", () => {
+        popup.style.display = "none";
+        document.getElementById("main").style.display = "flex";
+      }, { once: true });
+    }
+
+    const boxes = document.querySelectorAll(".box");
+    const nextButtons = document.querySelectorAll(".next-btn");
+
+    nextButtons.forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        boxes[index].classList.add("fade-out");
+
+        boxes[index].addEventListener("animationend", function handler() {
+          boxes[index].classList.remove("active", "fade-out");
+          boxes[index].removeEventListener("animationend", handler);
+
+          if (index + 1 < boxes.length) {
+            boxes[index + 1].classList.add("active");
+          } else {
+            const finalSection = document.getElementById("finalSection");
+            finalSection.classList.add("fade-in");
+            loopTypeEffect();
+          }
+        });
+      });
+    });
+
+    function loopTypeEffect() {
+      const texts = [
+        "আবারও শুভ জন্মদিন ",
+        "তোর জীবন হোক আনন্দময় ",
+        "খুশি থাকিস সবসময় "
+      ];
+      let index = 0;
+      let charIndex = 0;
+      const typingText = document.getElementById("typingText");
+      const speed = 100;
+      let deleting = false;
+
+      function type() {
+        if (!deleting) {
+          if (charIndex <= texts[index].length) {
+            typingText.textContent = texts[index].substring(0, charIndex);
+            charIndex++;
+            setTimeout(type, speed);
+          } else {
+            deleting = true;
+            setTimeout(type, 1500);
+          }
+        } else {
+          if (charIndex >= 0) {
+            typingText.textContent = texts[index].substring(0, charIndex);
+            charIndex--;
+            setTimeout(type, speed / 2);
+          } else {
+            deleting = false;
+            index = (index + 1) % texts.length;
+            setTimeout(type, 1000);
+          }
+        }
+      }
+
+      type();
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <audio id="balloonSound" src=""></audio>
+  <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const sound = document.getElementById("balloonSound");
+    sound.play().catch(() => {});
+
+    const duration = 4000; // Extended duration
+    const animationEnd = Date.now() + duration;
+    const defaults = {
+      startVelocity: 45, // Faster burst
+      spread: 400,       // Wider confetti spread
+      ticks: 80,         // Confetti stays longer
+      zIndex: 1000
+    };
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    const interval = setInterval(() => {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        clearInterval(interval);
+        return;
+      }
+
+      const particleCount = 100 * (timeLeft / duration); // More confetti
+
+      confetti(Object.assign({}, defaults, {
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+      }));
+
+      confetti(Object.assign({}, defaults, {
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+      }));
+
+      // Center burst for extra celebration
+      confetti(Object.assign({}, defaults, {
+        particleCount,
+        origin: { x: 0.5, y: Math.random() - 0.2 }
+      }));
+    }, 150); // Faster interval for more action
+  });
+</script>
+<script>
+  const coverPage = document.getElementById("coverPage");
+
+  coverPage.addEventListener("click", () => {
+    // Fade out cover page
+    coverPage.classList.add("fade-out");
+
+    // Start both audios after user interaction
+    const music1 = document.getElementById("bgMusic1");
+    const music2 = document.getElementById("bgMusic2");
+
+    // Optional: play them with a slight delay or together
+    music1.play().catch(err => console.log("Music1 error:", err));
+    music2.play().catch(err => console.log("Music2 error:", err));
+
+    // Show popup after fade
+    setTimeout(() => {
+      coverPage.style.display = "none";
+      document.getElementById("popup").style.display = "flex";
+    }, 1000);
+  });
+</script>
+
+<audio id="bgMusic1">
+  <source src="audiomass-output.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<audio id="bgMusic2" loop>
+  <source src="riji.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+</body>
+</html>
